@@ -10,6 +10,17 @@ type Output = {
 };
 
 export default function transformador(input: Input): Output[] {
-  // TODO: implement
-  return [];
+  if (input.nombres.length !== input.edades.length) {
+    return [];
+  }
+
+  let result = [];
+
+  for (let i = 0; i < input.nombres.length; i++) {
+    result.push({ id: i + 1, nombre: input.nombres[i], edad: input.edades[i] });
+  }
+
+  return result;
 }
+
+console.log(transformador({ nombres: ["Bruno", "Andrea"], edades: [20, 19] }));
